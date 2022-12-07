@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AddressData } from 'src/app/models/address-data.model';
 
 @Component({
@@ -8,19 +8,13 @@ import { AddressData } from 'src/app/models/address-data.model';
 })
 export class AddressComponent implements OnInit {
 
-  public addressData: AddressData = {
-    street: "Rua Luiz Galvez",
-    number: 254,
-    complement: "3º andar, sala 306",
-    state: "AC",
-    city: "Rio Branco",
-    district: "Conjunto Castelo Branco",
-    zipCode: "69911-262"
-  }
+  @Input() public addressData!: AddressData;
+  @Output() public elementCreated: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit() {
+    this.elementCreated.emit('address');
   }
 
 }

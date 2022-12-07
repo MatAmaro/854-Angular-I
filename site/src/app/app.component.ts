@@ -58,5 +58,8 @@ export class AppComponent {
   onContactFormSubmitted(formData: ContactFormData): void {
     console.log("Formulário enviado com sucesso!", formData);
   }
+  onSearchSubmit(searchData: string): void {
+    console.log("Busca recebida:", searchData);
+  }
 
 }

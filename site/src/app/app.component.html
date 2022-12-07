@@ -1,18 +1,25 @@
 <!-- Navbar -->
-<app-header></app-header>
+<app-header
+(searchSubmit)="onSearchSubmit($event)"
+(elementCreated)="onElementCreated($event)"
+></app-header>
 <!-- End Navbar -->
 
 <!-- Main -->
 <main id="main">
   <!-- Carousel -->
   <section id="carousel">
-    <app-carousel></app-carousel>
+    <app-carousel
+    (elementCreated)="onElementCreated($event)"
+    ></app-carousel>
   </section>
   <!-- End Carousel -->
 
   <!-- Features -->
   <section id="features" class="my-5">
-    <app-features></app-features>
+    <app-features [featuresData]="data.features"
+    (elementCreated)="onElementCreated($event)"
+    ></app-features>
   </section>
   <!-- End Features -->
 
@@ -27,13 +34,16 @@
 
   <!-- Address -->
   <section id="address" class="my-5">
-    <app-address></app-address>
+    <app-address [addressData]="data.address.data"
+    (elementCreated)="onElementCreated($event)"></app-address>
   </section>
   <!-- End Address -->
 
   <!-- Contact -->
   <section id="contact" class="my-5">
-    <app-contact (sendForm)="onContactFormSubmitted($event)"></app-contact>
+    <app-contact (sendForm)="onContactFormSubmitted($event)"
+    (elementCreated)="onElementCreated($event)"
+    ></app-contact>
   </section>
   <!-- End Contact -->
 
@@ -46,5 +56,7 @@
 <!-- End Main -->
 
 <!-- Footer -->
-<app-footer></app-footer>
+<app-footer
+(elementCreated)="onElementCreated($event)"
+></app-footer>
 <!-- End Footer -->
